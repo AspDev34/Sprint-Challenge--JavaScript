@@ -91,10 +91,9 @@ const contactInfo = graduates.map(function(student){
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = [];
-graduates.map(function(studentObject){
-  if (studentObject.university.includes("uni")) {
-    return unisWithUni.push(studentObject);
+const unisWithUni = graduates.map(function(studentObject){
+  if (studentObject.university.includes("Uni")) {
+    return studentObject;
   }
 })
 console.log(unisWithUni);
@@ -169,3 +168,26 @@ Stretch: If you haven't already, convert your array method callbacks into arrow 
 
 */
 
+const displayNames2 = [];
+zooAnimals.forEach((object) => {
+  return displayNames2.push(object.animal_name, object.scientific_name);
+})
+console.log(displayNames2);
+
+const lowCaseAnimalNames2 = [];
+zooAnimals.map( (object) => {
+  return lowCaseAnimalNames2.push(object.animal_name.toLowerCase());
+})
+console.log(lowCaseAnimalNames2);
+
+const lowPopulationAnimals2 = zooAnimals.filter((object) => {
+  if (object.population < 5) {
+    return object.population
+  }
+});
+console.log(lowPopulationAnimals2);
+
+const populationTotal2 = zooAnimals.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+console.log(populationTotal2);
