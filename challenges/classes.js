@@ -30,7 +30,7 @@ function CuboidMaker (length, width, height) {
       }
   }
 
-  const cuboidClass = new CuboidMakerClass
+  const cuboidClass = new CuboidMakerClass (4, 5, 5);
 
 // Test your volume and surfaceArea methods by uncommenting the logs below:
  console.log("question1", cuboidClass.volume(4, 5, 5)); // 100
