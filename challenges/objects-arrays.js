@@ -91,11 +91,14 @@ const contactInfo = graduates.map((student) => {
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = graduates.map((studentObject) => {
-  if (studentObject.university.includes("Uni")) {
-    return studentObject;
-  }
-})
+// const unisWithUni = graduates.map((studentObject) => {
+//   if (studentObject.university.includes("Uni")) {
+//     return studentObject;
+//   }
+// }) THis is the incorrect code
+
+const unisWithUni = graduates.filter(grad => grad.university.includes("Uni"));
+
 console.log(unisWithUni);
 
 
@@ -156,9 +159,12 @@ console.log(lowPopulationAnimals);
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = zooAnimals.reduce(function(accumulator, currentValue){
-  return accumulator + currentValue;
-}, 0);
+// const populationTotal = zooAnimals.reduce((accumulator, currentValue) => {
+//   return accumulator + currentValue;
+// }, 0); This is the old incorrect code.
+
+const populationTotal = zooAnimals.reduce((accumulator, currentValue) => accumulator + (currentValue.population || 0), 0)
+
 console.log(populationTotal);
 
 
@@ -187,7 +193,8 @@ const lowPopulationAnimals2 = zooAnimals.filter((object) => {
 });
 console.log(lowPopulationAnimals2);
 
+
 const populationTotal2 = zooAnimals.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue;
+  return accumulator + (currentValue.population || 0);
 }, 0);
 console.log(populationTotal2);
